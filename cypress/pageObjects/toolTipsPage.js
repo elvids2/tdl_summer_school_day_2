@@ -28,6 +28,11 @@ class ToolTipsPage extends BasePage {
   static get validateNumbers(){
     return cy.get ('[aria-describedby="sectionToolTip"]');
   }
+  static get validateText1(){
+    return cy.get ('[class="tooltip-inner"]');
+  }
+
+  
  
   
   

@@ -125,15 +125,20 @@ context("Elements Page", () => {
       ToolTipsPage.visit();
 
     });
-    it("toolTips scenario 1", () => {
+    it.only("toolTips scenario 1", () => {
      ToolTipsPage.hoverMe.trigger('mouseover');
      ToolTipsPage.validateHoverMe.should('be.visible');
+
      ToolTipsPage.hoverTextField.trigger('mouseover');
      ToolTipsPage.validateTextField.should('be.visible');
      ToolTipsPage.hoverContrary.trigger('mouseover');
      ToolTipsPage.validateContrary.should('be.visible');
      ToolTipsPage.hoverNumbers.trigger('mouseover');
      ToolTipsPage.validateNumbers.should('be.visible');
+     ToolTipsPage.validateText1.should('contain','You hovered over the Button')
+     ToolTipsPage.validateText1.should('contain','You hovered over the text field')
+     ToolTipsPage.validateText1.should('contain','You hovered over the Contrary')
+     ToolTipsPage.validateText1.should('contain','You hovered over the 1.10.32')
 
 
     });
@@ -144,7 +149,7 @@ context("Elements Page", () => {
       ProgressBarPage.visit();
 
     });
-    it.only("progressBar scenario 1", () => {
+    it("progressBar scenario 1", () => {
      ProgressBarPage.startButton.click();
      if(ProgressBarPage.ProgressBar.contains('25%')){
       ProgressBarPage.startButton.click();
