@@ -1,5 +1,6 @@
 import TextBoxPage from "../../pageObjects/textBoxPage";
 import CheckBoxPage from "../../pageObjects/checkBoxPage";
+import RadioButtonPage from "../../pageObjects/radioButtonPage";
 
 context("Elements Page", () => {
   context("Text box scenarios", () => {
@@ -43,7 +44,7 @@ context("Elements Page", () => {
           CheckBoxPage.validateOptions.should('contain', 'general');
           CheckBoxPage.validateOptions.should('contain', 'excelFile');
         });
-        it.only("Filling in check Boxes scenario 2", () => {
+        it("Filling in check Boxes scenario 2", () => {
           CheckBoxPage.expandOptions.click();
           CheckBoxPage.check.contains('Office').click();
           CheckBoxPage.validateOptions.should('contain', 'office');
@@ -57,13 +58,16 @@ context("Elements Page", () => {
   });
 
   context("Radio button scenarios", () => {
-    // Create RadioButtons page object
-    // Scenario 1:
-    // Click yesButton
-    // validate the message
-    // click impressiveButton
-    // validate the message
-    // noButton - validate that the button exists but is disabled
+    beforeEach(() => {
+      RadioButtonPage.visit();
+    });
+    it.only("RadioButtons scenario 1", () => {
+    RadioButtonPage.yesRadio.click();
+    RadioButtonPage.validateRadio.should('contain','Yes');
+    RadioButtonPage.impressiveRadio.click();
+    RadioButtonPage.validateRadio.should('contain', 'Impressive');
+    RadioButtonPage.noRadio.should('be.disabled');
+    })
   });
 
   context("Web tables scenarios", () => {
