@@ -76,7 +76,7 @@ context("Elements Page", () => {
       WebTablePage.visit();
 
     });
-    it.only("webTable scenario 1", () => {
+    it("webTable scenario 1", () => {
       WebTablePage.addRecord.click();
       WebTablePage.addFirstName.type('Hairry');
       WebTablePage.addLastName.type('Potter');
@@ -93,11 +93,13 @@ context("Elements Page", () => {
       WebTablePage.personTable.contains('CEO').should('be.visible');
 
 
-    // Create Scenario 2:
-    // Delete all table rows
-    // Validate that we see text - No rows found
     });
     it.only("webTable scenario 2", () => {
+      WebTablePage.deleteTable1.click();
+      WebTablePage.deleteTable2.click();
+      WebTablePage.deleteTable3.click();
+      WebTablePage.validateTable.should('contain', 'No rows found');
+    });
   });
 
   context("Buttons scenarios", () => {

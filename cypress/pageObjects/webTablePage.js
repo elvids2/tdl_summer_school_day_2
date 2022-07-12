@@ -31,6 +31,22 @@ class WebTablePage extends BasePage {
   static get personTable(){
     return cy.get ('[class="rt-tr-group"]');
   }
+  static get deleteTable1(){
+    return cy.get ('[id="delete-record-1"]');
+  }
+  static get deleteTable2(){
+    return cy.get ('[id="delete-record-2"]');
+  }
+  
+  static get deleteTable3(){
+    return cy.get ('[id="delete-record-3"]');
+  }
+  static get validateTable(){
+    return cy.get ('[class="rt-noData"]');
+  }
+  
+  
+  
 
   
 
