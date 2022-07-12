@@ -1,6 +1,7 @@
 import TextBoxPage from "../../pageObjects/textBoxPage";
 import CheckBoxPage from "../../pageObjects/checkBoxPage";
 import RadioButtonPage from "../../pageObjects/radioButtonPage";
+import WebTablePage from "../../pageObjects/webTablePage";
 
 context("Elements Page", () => {
   context("Text box scenarios", () => {
@@ -61,7 +62,7 @@ context("Elements Page", () => {
     beforeEach(() => {
       RadioButtonPage.visit();
     });
-    it.only("RadioButtons scenario 1", () => {
+    it("RadioButtons scenario 1", () => {
     RadioButtonPage.yesRadio.click();
     RadioButtonPage.validateRadio.should('contain','Yes');
     RadioButtonPage.impressiveRadio.click();
@@ -71,17 +72,32 @@ context("Elements Page", () => {
   });
 
   context("Web tables scenarios", () => {
-    // Create WebTables page object
-    // Create scenario 1:
-    // Click add record button
-    // fill in the necessary information
-    // click submit button
-    // search for the user based on previously added information
-    // validate tha the user is visible
+    beforeEach(() => {
+      WebTablePage.visit();
+
+    });
+    it.only("webTable scenario 1", () => {
+      WebTablePage.addRecord.click();
+      WebTablePage.addFirstName.type('Hairry');
+      WebTablePage.addLastName.type('Potter');
+      WebTablePage.addEmail.type('Hairry@gmail.com');
+      WebTablePage.addAge.type('5');
+      WebTablePage.addSalary.type('5000');
+      WebTablePage.addDepartment.type('CEO');
+      WebTablePage.addSubmit.click();
+      WebTablePage.personTable.contains('Hairry').should('contain','Hairry');
+      WebTablePage.personTable.contains('Potter').should('be.visible');
+      WebTablePage.personTable.contains('Hairry@gmail.com').should('be.visible');
+      WebTablePage.personTable.contains('5').should('be.visible');
+      WebTablePage.personTable.contains('5000').should('be.visible');
+      WebTablePage.personTable.contains('CEO').should('be.visible');
+
 
     // Create Scenario 2:
     // Delete all table rows
     // Validate that we see text - No rows found
+    });
+    it.only("webTable scenario 2", () => {
   });
 
   context("Buttons scenarios", () => {
