@@ -17,7 +17,7 @@ class ButtonsPage extends BasePage {
     return cy.get ('[id="rightClickMessage"]');
   }
   static get dynamicClick(){
-    return cy.get ('[id="xYpLk"]');
+    return cy.get ('[class="btn btn-primary"]').contains(/^\bClick Me\b/);
   }
   static get validateDynamicClick(){
     return cy.get ('[id="dynamicClickMessage"]');
