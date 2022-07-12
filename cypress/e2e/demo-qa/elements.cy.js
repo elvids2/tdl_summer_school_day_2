@@ -116,5 +116,6 @@ context("Elements Page", () => {
       ButtonsPage.dynamicClick.click();
       ButtonsPage.validateDynamicClick.should('contain','You have done a dynamic click');
     });
-  });
+
+  });//tool-tips
 });
