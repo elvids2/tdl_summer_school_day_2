@@ -30,7 +30,7 @@ context("Elements Page", () => {
     });
 
 
-        it.only("Filling in check Boxes", () => {
+        it("Filling in check Boxes scenario 1", () => {
           CheckBoxPage.expandOptions.click();
           CheckBoxPage.check.contains('Notes').click();
           CheckBoxPage.check.contains('React').click();
@@ -43,13 +43,17 @@ context("Elements Page", () => {
           CheckBoxPage.validateOptions.should('contain', 'general');
           CheckBoxPage.validateOptions.should('contain', 'excelFile');
         });
+        it.only("Filling in check Boxes scenario 2", () => {
+          CheckBoxPage.expandOptions.click();
+          CheckBoxPage.check.contains('Office').click();
+          CheckBoxPage.validateOptions.should('contain', 'office');
+          CheckBoxPage.validateOptions.should('contain', 'public');
+          CheckBoxPage.validateOptions.should('contain', 'private');
+          CheckBoxPage.validateOptions.should('contain', 'classified');
+          CheckBoxPage.validateOptions.should('contain', 'general');
 
-
-
-    // Create checkbox scenario 2:
-    // Click expand button
-    // Click Office
-    // Validate the checked checkboxes
+        });
+  
   });
 
   context("Radio button scenarios", () => {
