@@ -135,10 +135,10 @@ context("Elements Page", () => {
      ToolTipsPage.validateContrary.should('be.visible');
      ToolTipsPage.hoverNumbers.trigger('mouseover');
      ToolTipsPage.validateNumbers.should('be.visible');
-     ToolTipsPage.validateText1.should('contain','You hovered over the Button')
-     ToolTipsPage.validateText1.should('contain','You hovered over the text field')
-     ToolTipsPage.validateText1.should('contain','You hovered over the Contrary')
-     ToolTipsPage.validateText1.should('contain','You hovered over the 1.10.32')
+     ToolTipsPage.validateText1.should('contain','You hovered over the Button');
+     ToolTipsPage.validateText1.should('contain','You hovered over the text field');
+     ToolTipsPage.validateText1.should('contain','You hovered over the Contrary');
+     ToolTipsPage.validateText1.should('contain','You hovered over the 1.10.32');
 
 
     });
