@@ -1,4 +1,5 @@
 import TextBoxPage from "../../pageObjects/textBoxPage";
+import CheckBoxPage from "../../pageObjects/checkBoxPage";
 
 context("Elements Page", () => {
   context("Text box scenarios", () => {
@@ -20,14 +21,30 @@ context("Elements Page", () => {
       TextBoxPage.validateCAdress.should('contain','Hairrys street 1');
       TextBoxPage.validatePAdress.should('contain','Hairrys street 2');
     });
+    
   });
 
-  context("Check box scenarios", () => {
-    // Create CheckBoxPage page object
-    // Create checkbox scenario 1:
-    // Click the "+"/expand button
-    // Click Notes, React, Angular, General, Excel File.doc
-    // Validate the clicked checkboxes
+  context ("Check box scenarios", () => {
+    beforeEach(() => {
+      CheckBoxPage.visit();
+    });
+
+
+        it.only("Filling in check Boxes", () => {
+          CheckBoxPage.expandOptions.click();
+          CheckBoxPage.check.contains('Notes').click();
+          CheckBoxPage.check.contains('React').click();
+          CheckBoxPage.check.contains('Angular').click();
+          CheckBoxPage.check.contains('General').click();
+          CheckBoxPage.check.contains('Excel File.doc').click();
+          CheckBoxPage.validateOptions.should('contain', 'notes');
+          CheckBoxPage.validateOptions.should('contain', 'react');
+          CheckBoxPage.validateOptions.should('contain', 'angular');
+          CheckBoxPage.validateOptions.should('contain', 'general');
+          CheckBoxPage.validateOptions.should('contain', 'excelFile');
+        });
+
+
 
     // Create checkbox scenario 2:
     // Click expand button
