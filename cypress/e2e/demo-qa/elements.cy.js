@@ -3,6 +3,7 @@ import CheckBoxPage from "../../pageObjects/checkBoxPage";
 import RadioButtonPage from "../../pageObjects/radioButtonPage";
 import WebTablePage from "../../pageObjects/webTablePage";
 import ButtonsPage from "../../pageObjects/buttonsPage";
+import ToolTipsPage from "../../pageObjects/toolTipsPage";
 
 context("Elements Page", () => {
   context("Text box scenarios", () => {
@@ -108,7 +109,7 @@ context("Elements Page", () => {
       ButtonsPage.visit();
 
     });
-    it.only("buttons scenario 1", () => {
+    it("buttons scenario 1", () => {
       ButtonsPage.doubleClick.dblclick();
       ButtonsPage.validateDoubleClick.should('contain','You have done a double click');
       ButtonsPage.rightClickButton.rightclick();
@@ -117,5 +118,24 @@ context("Elements Page", () => {
       ButtonsPage.validateDynamicClick.should('contain','You have done a dynamic click');
     });
 
-  });//tool-tips
+  });
+  context("ToolTips scenarios", () => {
+    beforeEach(() => {
+      ToolTipsPage.visit();
+
+    });
+    it.only("toolTips scenario 1", () => {
+     ToolTipsPage.hoverMe.trigger('mouseover');
+     ToolTipsPage.validateHoverMe.should('be.visible');
+     ToolTipsPage.hoverTextField.trigger('mouseover');
+     ToolTipsPage.validateTextField.should('be.visible');
+     ToolTipsPage.hoverContrary.trigger('mouseover');
+     ToolTipsPage.validateContrary.should('be.visible');
+     ToolTipsPage.hoverNumbers.trigger('mouseover');
+     ToolTipsPage.validateNumbers.should('be.visible');
+
+
+    });
+
+  });
 });
